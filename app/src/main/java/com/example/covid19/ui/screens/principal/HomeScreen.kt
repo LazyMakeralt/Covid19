@@ -3,6 +3,7 @@ package com.example.covid19.ui.screens.principal
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -27,6 +28,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.covid19.ui.AnimatedContinentBackground
 import com.example.covid19.ui.AnimatedCountryBackground
+import com.example.covid19.ui.AnimatedPraticsBackground
 import com.example.covid19.ui.AnimatedQuizBackground
 import com.example.covid19.ui.AnimatedWorldBackground
 import com.example.covid19.ui.theme.Covid19Theme
@@ -55,21 +57,26 @@ fun HomesScreenPreview() {
 fun HomeScreen(modifier: Modifier = Modifier, navHostController: NavHostController?) {
 
     LazyColumn(modifier = Modifier.fillMaxSize().padding(16.dp)) {
-        // Ajouter chaque carte avec animation à la colonne
+        // menu with all all screen
         item {
-            CardWithAnimation("Search By Continent", { AnimatedContinentBackground() }, {})
+            CardWithAnimation("Search By Continent", { AnimatedContinentBackground() }, onClick = {navHostController?.navigate("continentScreenE")})
         }
         item {
             Spacer(modifier = Modifier.height(8.dp)) // Espacement entre les cartes
-            CardWithAnimation("Search By Country", { AnimatedCountryBackground() }, {})
+            CardWithAnimation("Search By Country", { AnimatedCountryBackground() },
+                onClick = {navHostController?.navigate("countryScreen")})
         }
         item {
             Spacer(modifier = Modifier.height(8.dp))
-            CardWithAnimation("World statistic", { AnimatedWorldBackground() }, {})
+            CardWithAnimation("World statistic", { AnimatedWorldBackground() }, onClick = {navHostController?.navigate("continentScreen")})
         }
         item {
             Spacer(modifier = Modifier.height(8.dp))
-            CardWithAnimation("Quiz", { AnimatedQuizBackground() }, {})
+            CardWithAnimation("Quiz", { AnimatedQuizBackground() }, onClick = {navHostController?.navigate("quizzScreen")})
+        }
+        item {
+            Spacer(modifier = Modifier.height(8.dp))
+            CardWithAnimation("good practices", { AnimatedPraticsBackground() }, onClick = {navHostController?.navigate("goodPractices")})
         }
     }
 
@@ -80,8 +87,10 @@ fun CardWithAnimation(title: String, animationContent: @Composable () -> Unit, o
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(8.dp) // Espacement entre les cartes
-            .height(200.dp), // Hauteur fixe pour chaque carte
+            .padding(8.dp) // spacing between card
+            .height(200.dp)
+            .clickable { onClick() },
+
         shape = MaterialTheme.shapes.medium,
         border = BorderStroke(2.dp, MaterialTheme.colorScheme.scrim)
     ) {
@@ -93,9 +102,9 @@ fun CardWithAnimation(title: String, animationContent: @Composable () -> Unit, o
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(150.dp) // Hauteur de l'animation à l'intérieur de la carte
+                    .height(150.dp)
             ) {
-                animationContent() // Contenu de l'animation
+                animationContent() // animation
             }
             Text(
                 text = title,

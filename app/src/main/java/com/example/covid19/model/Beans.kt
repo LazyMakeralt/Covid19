@@ -6,13 +6,13 @@ import com.google.gson.annotations.SerializedName
 // Covid
 /* -------------------------------- */
 data class CovidBean(
-    var continent: String,
+    var continent: String?,
     var country: String,
     var population: Int,
     var cases : CasesBean,
     var deaths : DeathsBean,
     var tests: TestsBean,
-    @SerializedName("day")var lastUpdate: String,
+    @SerializedName("day")var lastUpdate: String?
     )
 
 data class CasesBean(
@@ -38,4 +38,35 @@ data class TestsBean(
 
 data class CovidResultBean(
     @SerializedName("response")var list: List<CovidBean>   // List of CovidBean
+)
+
+data class WorldwideStat(
+    val label: String,
+    val value: String
+)
+
+ // Data class for Continent Screen
+data class ContinentStat(
+    val continentName: String,
+    val numberOfCountries: Int,
+    val totalCases: String,
+    val totalDeaths: String,
+    val totalTests: String,
+    val totalCriticalCases: String,
+    val totalRecoveredCases: String,
+    val totalActiveCases: String,
+    val image: Int? = null
+)
+
+ // Data class for Country Stats Screen
+data class CountryStat(
+    val countryName: String,
+    val continentName: String,
+    val totalCases: String,
+    val totalDeaths: String,
+    val totalTests: String,
+    val totalCriticalCases: String,
+    val totalRecoveredCases: String,
+    val totalActiveCases: String,
+    val image: Int? = null
 )

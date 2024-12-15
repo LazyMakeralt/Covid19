@@ -5,11 +5,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.example.covid19.ui.screens.continent.ContinentScreen
 import com.example.covid19.ui.screens.principal.HomeScreen
 import com.example.covid19.ui.screens.principal.StartScreen
 import com.example.covid19.ui.screens.country.CountryScreen
+
+import com.example.covid19.ui.screens.goodPrac.GoodPracticesScreen
+import com.example.covid19.ui.screens.quiz.QuizzScreen
+
+import com.example.covid19.ui.screens.worldwide.WorldwideStatScreen
 
 
 sealed class Routes(val route: String) {
@@ -20,9 +28,14 @@ sealed class Routes(val route: String) {
 
     data object  ContinentScreen : Routes("continentScreen")
 
+    data object  ContinentScreenE : Routes("continentScreenE")
+
     data object CountryScreen : Routes("countryScreen")
 
-    data object detCountryScreen : Routes("detCountryScreen")
+    data object QuizzScreen : Routes("quizzScreen")
+
+    data object GoodPracticesScreen : Routes("goodPractices")
+
 
 }
 
@@ -41,6 +54,19 @@ fun AppNavigation(modifier: Modifier = Modifier){
         composable(Routes.CountryScreen.route){
             CountryScreen(navHostController = navHostController)
         }
-        // Path to details screen
+
+        composable(Routes.ContinentScreenE.route){
+            ContinentScreen(navHostController = navHostController)
+        }
+        composable(Routes.ContinentScreen.route){
+            WorldwideStatScreen(navHostController = navHostController)
+        }
+        composable(Routes.GoodPracticesScreen.route){
+            GoodPracticesScreen(navHostController = navHostController)
+        }
+        composable(Routes.QuizzScreen.route){
+            QuizzScreen(navHostController = navHostController)
+        }
+
     }
 }

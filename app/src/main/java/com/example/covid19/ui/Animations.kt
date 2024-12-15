@@ -31,7 +31,6 @@ fun AnimatedVirusBackground() {
         contentScale = ContentScale.Crop
     )
 }
-
 @Composable
 fun AnimatedCountryBackground() {
 
@@ -82,6 +81,126 @@ fun AnimatedWorldBackground() {
 
     val composition by rememberLottieComposition(
         LottieCompositionSpec.RawRes(R.raw.world)
+    )
+
+
+    LottieAnimation(
+        composition = composition,
+        iterations = LottieConstants.IterateForever,
+        modifier = Modifier.fillMaxWidth().height(150.dp),
+        contentScale = ContentScale.Crop
+    )
+}
+@Composable
+fun AnimatedPraticsBackground() {
+
+    val composition by rememberLottieComposition(
+        LottieCompositionSpec.RawRes(R.raw.pratics)
+    )
+
+
+    LottieAnimation(
+        composition = composition,
+        iterations = LottieConstants.IterateForever,
+        modifier = Modifier.fillMaxWidth().height(150.dp),
+        contentScale = ContentScale.Crop
+    )
+}
+@Composable
+fun AnimatedWorldAnimBackground() {
+
+    val composition by rememberLottieComposition(
+        LottieCompositionSpec.RawRes(R.raw.worldanim)
+    )
+
+
+    LottieAnimation(
+        composition = composition,
+        iterations = LottieConstants.IterateForever,
+        modifier = Modifier.fillMaxWidth().height(150.dp),
+        contentScale = ContentScale.Crop
+    )
+}
+@Composable
+fun AnimatedmaskBackground() {
+
+    val composition by rememberLottieComposition(
+        LottieCompositionSpec.RawRes(R.raw.mask)
+    )
+
+
+    LottieAnimation(
+        composition = composition,
+        iterations = LottieConstants.IterateForever,
+        modifier = Modifier.fillMaxWidth().height(150.dp),
+        contentScale = ContentScale.Crop
+    )
+}
+@Composable
+fun AnimatedhandBackground() {
+
+    val composition by rememberLottieComposition(
+        LottieCompositionSpec.RawRes(R.raw.handcleaning)
+    )
+
+
+    LottieAnimation(
+        composition = composition,
+        iterations = LottieConstants.IterateForever,
+        modifier = Modifier.fillMaxWidth().height(150.dp),
+        contentScale = ContentScale.Crop
+    )
+}
+@Composable
+fun AnimatedvaccinBackground() {
+
+    val composition by rememberLottieComposition(
+        LottieCompositionSpec.RawRes(R.raw.vaccin)
+    )
+
+
+    LottieAnimation(
+        composition = composition,
+        iterations = LottieConstants.IterateForever,
+        modifier = Modifier.fillMaxWidth().height(150.dp),
+        contentScale = ContentScale.Crop
+    )
+}
+@Composable
+fun AnimatedSpaceBackground() {
+
+    val composition by rememberLottieComposition(
+        LottieCompositionSpec.RawRes(R.raw.space)
+    )
+
+
+    LottieAnimation(
+        composition = composition,
+        iterations = LottieConstants.IterateForever,
+        modifier = Modifier.fillMaxWidth().height(150.dp),
+        contentScale = ContentScale.Crop
+    )
+}
+@Composable
+fun AnimatedgelBackground() {
+
+    val composition by rememberLottieComposition(
+        LottieCompositionSpec.RawRes(R.raw.gel)
+    )
+
+
+    LottieAnimation(
+        composition = composition,
+        iterations = LottieConstants.IterateForever,
+        modifier = Modifier.fillMaxWidth().height(150.dp),
+        contentScale = ContentScale.Crop
+    )
+}
+@Composable
+fun AnimatedlearnBackground() {
+
+    val composition by rememberLottieComposition(
+        LottieCompositionSpec.RawRes(R.raw.learn)
     )
 
 
